@@ -1,0 +1,24 @@
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.14/moment-timezone-with-data-2012-2022.js"></script>
+<script>
+</script>
+<script type="text/javascript">
+$(document).ready(function(){setInterval(function(){
+    $('.location').each(function() {
+        $(this).html("");
+        var timeZone = $(this).data('tz');
+        var now = moment().tz(timeZone).format('HH:mm:ss');       
+        $(this).append( now );
+    });
+   },1000);
+});
+</script>
+<style>
+    .location {
+    font-weight: bold;
+    }
+</style>
+<span>Washington, DC: </span><span class="location" data-tz="America/New_York"></span><br />
+<span>London: </span><span class="location" data-tz="Europe/London"></span><br />
+<span>Beijing: </span><span class="location" data-tz="Asia/Hong_Kong"></span><br>
